@@ -1,0 +1,18 @@
+<Accounts>
+    <account>
+        <userType>Admin</userType>
+        <firstName>AdminFirstName</firstName>
+        <lastName>AdminLastName</lastName>
+        <login>admin.example.mail@gmail.com</login>
+        <samAccountName>AdminFirstName_AdminLastName</samAccountName>
+        <pass>admin1</pass>
+    </account>
+    <account>
+        <userType>User</userType>
+        <firstName>UserFirstName</firstName>
+        <lastName>UserLastName</lastName>
+        <login>user.example.mailo@gmail.com</login>
+        <samAccountName>UserFirstName_AdminLastName</samAccountName>
+        <pass>user1</pass>
+    </account>
+</Accounts>
