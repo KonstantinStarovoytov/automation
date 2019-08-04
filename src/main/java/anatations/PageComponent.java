@@ -13,4 +13,4 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention (RUNTIME)
 @Service
 @Scope ("thread")
-public @interface Block {}
+public @interface PageComponent {}

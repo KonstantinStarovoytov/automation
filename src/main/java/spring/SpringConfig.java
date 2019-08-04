@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.SimpleThreadScope;
 
 @Configuration
-@ComponentScan (basePackages = "core, pages, services, tests")
+@ComponentScan (basePackages = "components, core, pages, services, tests")
 public class SpringConfig {
 
     @Bean

@@ -43,7 +43,7 @@ public class BaseTest extends AbstractTestNGSpringContextTests {
     @BeforeTest
     public void beforeTest() {
         Configuration.browser = "chrome";
-        Configuration.baseUrl = "https://www.gmail.com";
+        Configuration.baseUrl = "localhost:8080";
         Configuration.startMaximized = true;
         Configuration.browserSize = "1920x1080";
     }

@@ -2,19 +2,18 @@ package pages;
 
 import anatations.PageObject;
 import com.codeborne.selenide.SelenideElement;
+import components.NavigationBar;
 import lombok.Getter;
-import tests.BaseTest;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import static com.codeborne.selenide.Selenide.$;
-import static java.lang.String.format;
 
 @Getter
 @PageObject
 public class MainPage extends BasePage {
 
-    public SelenideElement getIMG_avatar () {
-        return $(format("a[aria-label*='%s']", BaseTest.currentUser.get().getLogin()));
-    }
+    @Autowired
+    private NavigationBar navigationBar;
 
-    private SelenideElement logo = $("a[href='#inbox'] img");
+    private SelenideElement btnSignIn = $("#navbarSupportedContent button");
 }
