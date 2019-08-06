@@ -36,6 +36,12 @@
             <version>2.1.3.RELEASE</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/net.javacrumbs.hamcrest-logger/hamcrest-logger -->
+        <dependency>
+            <groupId>net.javacrumbs.hamcrest-logger</groupId>
+            <artifactId>hamcrest-logger</artifactId>
+            <version>0.0.1</version>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -102,6 +108,32 @@
             <version>6.14.3</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>5.4.2.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-c3p0</artifactId>
+            <version>5.4.2.Final</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.16</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-envers</artifactId>
+            <version>5.4.2.Final</version>
+        </dependency>
+
     </dependencies>
 
 
@@ -115,20 +147,9 @@
                     <forkCount>0</forkCount>
                     <testFailureIgnore>true</testFailureIgnore>
                     <suiteXmlFiles>
-                        <xmlFile>suites/regression.xml</xmlFile> <!--change it before every merge request-->
+                        <xmlFile>suites/TestLogin.xml</xmlFile>
                     </suiteXmlFiles>
-                    <!-- ADD working directory to get TestNG know we to find suite files -->
                     <workingDirectory>./</workingDirectory>
-                    <properties>
-                        <property>
-                            <name>usedefaultlisteners</name>
-                            <value>false</value>
-                        </property>
-                        <property>
-                            <name>listener</name>
-                            <value>core.CustomReportPortalListener</value>
-                        </property>
-                    </properties>
                 </configuration>
             </plugin>
 

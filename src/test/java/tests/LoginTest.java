@@ -10,11 +10,11 @@ import services.LoginService;
 public class LoginTest extends BaseTest {
 
     @Autowired
-    private LoginService login;
+    private LoginService loginService;
 
     @Test (description = "Login test")
     public void LoginTest () {
-        login.login(currentUser.get());
-        login.checkLoggedInUserNameEqualTo(currentUser.get());
+        loginService.login(currentUser.get());
+        loginService.checkLoggedInUserNameEqualTo(currentUser.get());
     }
 }

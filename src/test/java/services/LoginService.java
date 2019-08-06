@@ -21,7 +21,7 @@ public class LoginService implements NavigationBarService {
     private LoginPage page;
 
     public void login(Account account) {
-        open(Configuration.baseUrl);
+        open(Configuration.baseUrl.concat(":8080").replace("https://",""));
         clickSignInButton();
         getPage().getIpfUserName().sendKeys(account.getSamAccountName());
         getPage().getIpfPassword().sendKeys(account.getPass());
