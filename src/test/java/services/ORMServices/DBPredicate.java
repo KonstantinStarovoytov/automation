@@ -35,22 +35,15 @@ public class DBPredicate {
 
     @SuppressWarnings ({ "unchecked", "rawtypes" })
     public Predicate get (CriteriaBuilder builder, Root root) {
-        switch (operation) {
-            case EQUALS:
-                return builder.equal(root.get(fieldName), value);
-            case MORE_THAN:
-                return builder.greaterThan(root.get(fieldName), value);
-            case NOT_EQUALS:
-                return builder.notEqual(root.get(fieldName), value);
-            case NOT_CONTAINS:
-                return root.get(fieldName).in(values).not();
-            case LESS_THAN:
-                return builder.lessThan(root.get(fieldName), value);
-            case IN:
-                return root.get(fieldName).in(values);
-            default:
-                throw new IllegalArgumentException("Can't create predicate with root = " + root.toString());
-        }
+        return switch(operation) {
+            case EQUALS -> builder.equal(root.get(fieldName), value);
+            case MORE_THAN -> builder.greaterThan(root.get(fieldName), value);
+            case NOT_EQUALS -> builder.notEqual(root.get(fieldName), value);
+            case NOT_CONTAINS -> root.get(fieldName).in(values).not();
+            case LESS_THAN -> builder.lessThan(root.get(fieldName), value);
+            case IN -> root.get(fieldName).in(values);
+            default -> throw new IllegalArgumentException("Can't create predicate with root = " + root.toString());
+        };
     }
 
     public enum Operation {

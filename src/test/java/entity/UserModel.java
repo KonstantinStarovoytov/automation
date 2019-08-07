@@ -1,5 +1,7 @@
 package entity;
 
+import java.util.Set;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,6 +12,10 @@ import javax.persistence.*;
 @Entity
 @Table(name = "usr")
 public class UserModel {
+
+    @OneToMany(mappedBy = "userId", fetch = FetchType.LAZY)
+    private Set<String> roles;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column (name = "id", nullable = false)
