@@ -5,10 +5,12 @@ import lombok.extern.slf4j.Slf4j;
 import objects.Accounts.Account;
 import objects.Accounts.Accounts;
 import objects.UserType;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
+import services.LoginService;
 import spring.SpringConfig;
 
 import java.util.Arrays;
@@ -19,8 +21,10 @@ import static com.codeborne.selenide.Selenide.close;
 @ContextConfiguration(classes = SpringConfig.class)
 public class BaseTest extends AbstractTestNGSpringContextTests {
 
-    public static ThreadLocal<Account> currentUser = new ThreadLocal<>();
+    @Autowired
+    private LoginService loginService;
 
+    public static ThreadLocal<Account> currentUser = new ThreadLocal<>();
 
     public static synchronized void setCurrentUser(Account user) {
         currentUser.set(user);
@@ -55,6 +59,12 @@ public class BaseTest extends AbstractTestNGSpringContextTests {
 
     @BeforeMethod()
     public static void beforeMethod(ITestContext context) {
+        log.info("Starts test method with name: " + context.getCurrentXmlTest().getName());
+    }
+
+    @BeforeMethod(groups = "withLogin")
+    public void login(ITestContext context) {
+        loginService.login(currentUser.get());
         log.info("Starts test method with name: " + context.getCurrentXmlTest().getName());
     }
 

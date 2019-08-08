@@ -13,9 +13,6 @@ import javax.persistence.*;
 @Table(name = "usr")
 public class UserModel {
 
-    @OneToMany(mappedBy = "userId", fetch = FetchType.LAZY)
-    private Set<String> roles;
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column (name = "id", nullable = false)
@@ -35,4 +32,10 @@ public class UserModel {
 
     @Column (name = "username", nullable = false)
     public String username;
+
+    @OneToMany(mappedBy = "userId", fetch = FetchType.EAGER)
+    private Set<MessageModel> messages;
+
+    @OneToMany(mappedBy = "userId", fetch = FetchType.EAGER)
+    private Set<UserRole> role;
 }

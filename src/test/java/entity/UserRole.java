@@ -11,10 +11,14 @@ import lombok.Setter;
 @Table(name = "user_role")
 public class UserRole {
 
-    @Column(name = "user_id", nullable = false)
+    @Column(name = "user_id", nullable = false, insertable = false, updatable = false)
     private Long userId;
 
-    @ManyToOne (fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn (name = "id")
+    @Id
+    @Column(name="roles")
     private String roles;
+
+    @ManyToOne (fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn (name = "user_id")
+    private UserModel model;
 }

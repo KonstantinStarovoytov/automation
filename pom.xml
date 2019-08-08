@@ -10,7 +10,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>10</java.version>
+        <java.version>12</java.version>
         <reportportal.version>4.0.0</reportportal.version>
     </properties>
 

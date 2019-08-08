@@ -19,10 +19,6 @@ public class LoginPage extends BasePage {
     @Autowired
     private NavigationBar navigationBar;
 
-    public SelenideElement getAccount () {
-        return $(format("[data-email='%s']#profileIdentifier",BaseTest.currentUser.get()));
-    }
-
     private SelenideElement ipfUserName = $("input[name=username]");
     private SelenideElement ipfPassword = $("input[name=password]");
     private SelenideElement btnSubmit = $(".mx-auto button");

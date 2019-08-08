@@ -15,6 +15,10 @@ public interface NavigationBarService {
         navigationBar().getBtnSignIn().click();
     }
 
+    default void clickMessageMenuItem() {
+        navigationBar().getBtnMessages().click();
+    }
+
     default void clickSignOutButton() {
         navigationBar().getBtnSignOut().click();
     }
