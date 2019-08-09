@@ -14,27 +14,27 @@ import java.util.stream.Collectors;
 public class DBFinder<T> {
     private Class<T> returnClass;
 
-    public DBFinder (Class<T> returnClass) {
+    public DBFinder(Class<T> returnClass) {
         super();
         this.returnClass = returnClass;
     }
 
     public List<DBPredicate> list = new ArrayList<>();
 
-    public static <T> DBFinder find (Class<T> returnClass) {
+    public static <T> DBFinder find(Class<T> returnClass) {
         return new DBFinder(returnClass);
     }
 
-    public DBFinder where (DBPredicate predicate) {
+    public DBFinder where(DBPredicate predicate) {
         list.add(predicate);
         return this;
     }
 
-    public DBFinder and (DBPredicate predicate) {
+    public DBFinder and(DBPredicate predicate) {
         return where(predicate);
     }
 
-    public <S> Optional<S> getFieldValue (String field, Class<S> fieldClass) {
+    <S> Optional<S> getFieldValue(String field, Class<S> fieldClass) {
         Session session = HibernateUtil.getSessionFactory().openSession();
 
         session.beginTransaction();
@@ -60,7 +60,8 @@ public class DBFinder<T> {
         session.clear();
         return value;
     }
-    public List<T> getResultList () {
+
+    List<T> getResultList() {
         Session session = HibernateUtil.getSessionFactory().openSession();
 
         session.beginTransaction();

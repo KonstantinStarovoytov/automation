@@ -33,9 +33,9 @@ public class DBPredicate {
         this.operation = operation;
     }
 
-    @SuppressWarnings ({ "unchecked", "rawtypes" })
-    public Predicate get (CriteriaBuilder builder, Root root) {
-        return switch(operation) {
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    public Predicate get(CriteriaBuilder builder, Root root) {
+        return switch (operation) {
             case EQUALS -> builder.equal(root.get(fieldName), value);
             case MORE_THAN -> builder.greaterThan(root.get(fieldName), value);
             case NOT_EQUALS -> builder.notEqual(root.get(fieldName), value);
@@ -46,7 +46,19 @@ public class DBPredicate {
         };
     }
 
+    public static DBPredicate idEqual(String id) {
+        return new DBPredicate("id", id, Operation.EQUALS);
+    }
+
+    public static DBPredicate nameEqual(String name) {
+        return new DBPredicate("username", name, Operation.EQUALS);
+    }
+
+    public static DBPredicate emailEqual(String email) {
+        return new DBPredicate("email", email, Operation.EQUALS);
+    }
+
     public enum Operation {
-        EQUALS, MORE_THAN, LESS_THAN, NOT_EQUALS, IN, NOT_CONTAINS;
+        EQUALS, MORE_THAN, LESS_THAN, NOT_EQUALS, IN, NOT_CONTAINS
     }
 }

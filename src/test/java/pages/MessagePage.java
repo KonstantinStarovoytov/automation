@@ -18,4 +18,5 @@ public class MessagePage extends BasePage {
     private SelenideElement ipfMessage = $(".form-group input[name=text]");
     private SelenideElement ipfTag = $(".form-group input[name=tag]");
     private SelenideElement ipfFileUpload = $(".form-group input#customFile");
+    private SelenideElement btnPostMessage = $("input[type=hidden]~div button");
 }

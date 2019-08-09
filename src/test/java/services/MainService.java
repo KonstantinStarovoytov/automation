@@ -1,7 +1,6 @@
 package services;
 
 import anatations.Service;
-import com.codeborne.selenide.Condition;
 import components.NavigationBar;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
@@ -14,10 +13,10 @@ import services.pageComponentServices.NavigationBarService;
 @Service
 public class MainService implements NavigationBarService {
     @Autowired
-    private MainPage mainPage;
+    private MainPage page;
 
     @Override
     public NavigationBar navigationBar() {
-        return getMainPage().getNavigationBar();
+        return getPage().getNavigationBar();
     }
 }

@@ -55,6 +55,7 @@ public class BaseTest extends AbstractTestNGSpringContextTests {
     @AfterClass()
     public void removeUser() {
         log.info("Set no one user instead of " + currentUser.get().getSamAccountName());
+        currentUser.remove();
     }
 
     @BeforeMethod()
@@ -65,7 +66,7 @@ public class BaseTest extends AbstractTestNGSpringContextTests {
     @BeforeMethod(groups = "withLogin")
     public void login(ITestContext context) {
         loginService.login(currentUser.get());
-        log.info("Starts test method with name: " + context.getCurrentXmlTest().getName());
+        log.info("Starts test class with name: " + context.getCurrentXmlTest().getName());
     }
 
     @AfterSuite(alwaysRun = true, description = "close all browsers")

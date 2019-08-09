@@ -13,25 +13,25 @@ import java.util.List;
 public enum UserType {
     MAIN("Main", "Admin"),
     ADDITIONAL("Additional", "User"),
-    NA_NA("","");
+    NA_NA("", "");
 
     private String typeName;
     private String roleName;
 
-    public String getFirstLastName () {
+    public String getFirstLastName() {
         return Joiner.on(" ").join(Accounts.getAccount(this).getFirstName(), Accounts.getAccount(this).getLastName());
     }
 
 
-    public static List<UserType> getVpUser () {
-        return ImmutableList.of(MAIN,ADDITIONAL);
+    public static List<UserType> getUsers() {
+        return ImmutableList.of(MAIN, ADDITIONAL);
     }
 
-    public String getRoleLowerCaseString () {
+    public String getRoleLowerCaseString() {
         return roleName.toLowerCase();
     }
 
-    public static UserType getUserTypeByType (String type) {
+    public static UserType getUserTypeByType(String type) {
         for (UserType value : UserType.values()) {
             if (value.getTypeName().equals(type)) return value;
         }

@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="Login Page Tests" verbose="1" parallel="methods" thread-count="1">
-    <test verbose="1" name="User">
+    <test verbose="1" name="Login test">
         <parameter name="type" value="Main"/>
+        <groups>
+            <run>
+                <exclude name="withLogin"/>
+            </run>
+        </groups>
         <classes>
-            <class name="tests.LoginTest"></class>
+            <class name="tests.LoginTest"/>
         </classes>
     </test>
+    <test verbose="1" name="Message test">
+        <parameter name="type" value="Additional"/>
+        <classes>
+            <class name="tests.MessageTest"/>
+        </classes>
+    </test>
+
 </suite>
